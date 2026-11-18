@@ -63,75 +63,110 @@
           d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"
         />
       </symbol>
+      <symbol id="icon-scan-line" viewBox="0 0 24 24">
+        <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+        <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+        <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+        <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+        <path d="M7 12h10" />
+      </symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></symbol>
+      <symbol id="icon-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></symbol>
+      <symbol id="icon-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></symbol>
+      <symbol id="icon-x" viewBox="0 0 24 24"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" /></symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M5 12h14" /><path d="M12 5v14" /></symbol>
+      <symbol id="icon-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6" /></symbol>
+      <symbol id="icon-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6" /></symbol>
     </svg>
     <main>
-      <div id="campus-stores">
-        <div class="examstrip">
-          <span>Product Engineer practical</span>
-          <details>
-            <summary>Candidate brief</summary>
-            <div class="briefcopy">
-              <h2>Would you keep this product?</h2>
-              <p>
-                Work a shift at the campus media desk. Get the Film Society’s
-                kit out for its screening, handle the return, and leave the next
-                shift enough information to finish the job. Use the time control
-                to move the story forward.
-              </p>
-              <p>
-                Show one moment the product handles well and one moment you
-                would change. Use a specific action or decision from your shift
-                as evidence for each.
-              </p>
-              <p>
-                Sketch or prototype your change. Walk us through the same job
-                using it, explain what you would keep, and name one observation
-                at a real counter that would tell you whether it helped.
-              </p>
-              <p>
-                Use any tools you like, including AI assistants, web search,
-                and design or coding tools.
-              </p>
-            </div>
-          </details>
-        </div>
-        <header class="mast">
-          <div class="brandblock">
+      <div id="campus-stores" class="app">
+        <aside class="side">
+          <div class="brand">
             <div class="brandmark" aria-hidden="true">
-              <svg aria-hidden="true" class="store-icon">
-                <use href="#icon-package-open"></use>
-              </svg>
+              <svg aria-hidden="true" class="store-icon"><use href="#icon-package-open"></use></svg>
             </div>
             <div>
               <h1>Campus Stores</h1>
-              <div class="muted">Media equipment desk</div>
+              <span>Media equipment desk</span>
             </div>
           </div>
-          <div class="clock">
-            <small>Desk time</small><strong data-clock></strong>
-          </div>
-        </header>
-        <aside class="shift">
-          <div>
-            <b data-shift-title></b>
-            <p data-shift></p>
-          </div>
-          <button type="button" data-action="advance"></button>
-        </aside>
-        <div class="shell">
           <nav aria-label="Store records" data-nav></nav>
-          <section
-            class="page"
-            data-page
-            aria-label="Selected register"
-          ></section>
+          <section class="shiftpanel" aria-label="Shift">
+            <span class="sidelabel">Shift</span>
+            <ol class="steps" data-steps></ol>
+          </section>
+          <div class="sidefoot">
+            <button type="button" class="iconbtn" data-action="theme" aria-label="Switch theme" title="Switch theme">
+              <svg aria-hidden="true" class="store-icon"><use href="#icon-moon"></use></svg>
+            </button>
+            <button type="button" class="ghost restart" data-action="restart" title="Restore the fictional starting records">
+              <svg aria-hidden="true" class="store-icon"><use href="#icon-rotate-ccw"></use></svg>
+              Restart sample shift
+            </button>
+          </div>
+        </aside>
+        <div class="main">
+          <header class="topbar">
+            <div class="clock">
+              <span class="live" aria-hidden="true"></span>
+              <span class="sr">Desk time</span>
+              <strong data-clock></strong>
+            </div>
+            <div class="topactions">
+              <div class="modes" role="group" aria-label="Desk version">
+                <button type="button" data-action="mode" data-val="original" aria-pressed="false">Original</button>
+                <button type="button" data-action="mode" data-val="proposed" aria-pressed="true">Proposed</button>
+              </div>
+              <button type="button" class="ghost" data-action="brief">
+                <svg aria-hidden="true" class="store-icon"><use href="#icon-file-text"></use></svg>
+                Candidate brief
+              </button>
+            </div>
+          </header>
+          <section class="scene" aria-label="Current situation">
+            <div class="scenecopy">
+              <span class="scenetitle" data-shift-title></span>
+              <p data-shift></p>
+            </div>
+            <button type="button" class="primary" data-action="advance"></button>
+          </section>
+          <section class="page" data-page aria-label="Selected register"></section>
         </div>
-        <div class="statusbar">
-          <span role="status" aria-live="polite" data-status></span
-          ><button type="button" data-action="restart">
-            Restart sample shift
-          </button>
-        </div>
+        <div class="toast" role="status" aria-live="polite" data-status></div>
+        <dialog class="brief" data-brief aria-labelledby="brief-title">
+          <div class="briefhead">
+            <span class="sidelabel">Candidate brief</span>
+            <button type="button" class="iconbtn" data-action="closebrief" aria-label="Close">
+              <svg aria-hidden="true" class="store-icon"><use href="#icon-x"></use></svg>
+            </button>
+          </div>
+          <div class="briefcopy">
+            <h2 id="brief-title">Would you keep this product?</h2>
+            <p>
+              Work a shift at the campus media desk. Get the Film Society’s
+              kit out for its screening, handle the return, and leave the next
+              shift enough information to finish the job. Use the time control
+              to move the story forward.
+            </p>
+            <p>
+              Show one moment the product handles well and one moment you
+              would change. Use a specific action or decision from your shift
+              as evidence for each.
+            </p>
+            <p>
+              Sketch or prototype your change. Walk us through the same job
+              using it, explain what you would keep, and name one observation
+              at a real counter that would tell you whether it helped.
+            </p>
+            <p>
+              Use any tools you like, including AI assistants, web search,
+              and design or coding tools.
+            </p>
+          </div>
+        </dialog>
       </div>
     </main>
   </body>
